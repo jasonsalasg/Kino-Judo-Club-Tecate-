@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kino Judo Club Tecate | Judo Tradicional</title>
+    <meta name="description" content="Academia de Judo tradicional en Tecate, B.C. Desarrolla disciplina, técnica y fuerza física. Clases para adolescentes y adultos dentro del Gimnasio Fitroom TKT.">
+    <style>
+        :root {
+            --rojo: #c41e3a;
+            --negro: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-claro: #f0f0f0;
+            --verde: #2e7d32;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.7; color: #333; background: var(--gris-claro); }
+        a { text-decoration: none; }
+
+        header {
+            background: var(--negro);
+            color: var(--blanco);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2rem; font-weight: bold; color: var(--rojo); }
+        .menu { list-style: none; display: flex; gap: 2rem; }
+        .menu a { color: var(--blanco); transition: color 0.3s; }
+        .menu a:hover { color: var(--rojo); }
+        .mobile-menu { display: none; cursor: pointer; font-size: 1.8rem; }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+        }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .hero .slogan { font-size: 2rem; margin: 2rem 0; font-style: italic; }
+        .btn { background: var(--rojo); color: var(--blanco); padding: 15px 35px; border-radius: 5px; font-size: 1.3rem; transition: 0.3s; }
+        .btn:hover { background: #a0172e; transform: scale(1.05); }
+
+        section { padding: 100px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--verde);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--verde);
+            margin: 20px auto 0;
+        }
+
+        .motivacional {
+            background: var(--gris-claro);
+            text-align: center;
+            padding: 60px 0;
+        }
+        .motivacional p { font-size: 1.8rem; font-style: italic; color: var(--negro); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        .info-text { font-size: 1.2rem; }
+
+        .mision-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            text-align: center;
+        }
+        .card { background: var(--blanco); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .dirigido { text-align: center; }
+        .edades { font-size: 3rem; color: var(--rojo); margin: 2rem 0; }
+
+        .instalaciones img { width: 100%; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        .ventajas ul { font-size: 1.2rem; list-style: none; }
+        .ventajas li { margin: 1rem 0; padding-left: 2rem; position: relative; }
+        .ventajas li::before { content: "✔"; color: var(--verde); position: absolute; left: 0; font-weight: bold; }
+
+        .diferentes { background: var(--negro); color: var(--blanco); }
+        .diferentes .section-title { color: var(--rojo); }
+        .diferentes .section-title::after { background: var(--rojo); }
+
+        .contacto { background: var(--gris-claro); text-align: center; }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .menu { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--negro); padding: 1rem 0; }
+            .menu.active { display: flex; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 2.8rem; }
+            .mision-vision { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">KINO JUDO CLUB</div>
+                <ul class="menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#quienes">Quiénes Somos</a></li>
+                    <li><a href="#mision">Misión / Visión</a></li>
+                    <li><a href="#instalaciones">Instalaciones</a></li>
+                    <li><a href="#diferentes">Qué nos Hace Diferentes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>KINO JUDO CLUB TECATE</h1>
+        <p class="slogan">Forjados en la disciplina, coronados con respeto</p>
+        <a href="https://wa.me/526651270566" class="btn" target="_blank">¡Únete al tatami!</a>
+    </section>
+
+    <section class="motivacional">
+        <div class="container">
+            <p>Forjados en la disciplina, coronados con respeto</p>
+        </div>
+    </section>
+
+    <section id="quienes">
+        <div class="container">
+            <h2 class="section-title">¿Quiénes somos?</h2>
+            <div class="info-grid">
+                <div class="info-text">
+                    <p>Kino Judo Club es una academia especializada en la formación técnica y física de judokas.</p>
+                    <br>
+                    <p>Nuestro enfoque combina la tradición del judo con un entrenamiento integral que desarrolla fuerza, técnica y carácter tanto dentro como fuera del tatami.</p>
+                    <br>
+                    <p>La mensualidad incluye acceso completo al gimnasio con pesas, máquinas y regaderas para fortalecer tu judo.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1575361205764-7c2f9cd1dd57?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Entrenamiento de Judo">
+            </div>
+        </div>
+    </section>
+
+    <section id="mision">
+        <div class="container">
+            <h2 class="section-title">Misión / Visión</h2>
+            <div class="mision-vision">
+                <div class="card">
+                    <h3>Misión</h3>
+                    <p>Formar judokas integrales con disciplina, técnica y respeto mediante un sistema de entrenamiento tradicional que desarrolle al máximo su potencial dentro y fuera del tatami.</p>
+                </div>
+                <div class="card">
+                    <h3>Visión</h3>
+                    <p>En 2030 ser la academia referente en Baja California en la formación de judokas competitivos y de alto rendimiento, desarrollando talento con valores y proyectándolos a torneos nacionales e internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dirigido">
+        <div class="container">
+            <h2 class="section-title">Dirigido a</h2>
+            <p>Adolescentes y adultos que buscan crecimiento real a través del judo</p>
+            <div class="edades">15 - 40 años</div>
+        </div>
+    </section>
+
+    <section id="instalaciones">
+        <div class="container">
+            <h2 class="section-title">Instalaciones</h2>
+            <p style="text-align:center; margin-bottom:3rem; font-size:1.2rem;">Ubicados dentro del Gimnasio Fitroom TKT - Tecate, B.C.</p>
+            <img src="https://images.unsplash.com/photo-1535747796196-7f6bd7f08d55?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Tatami y gimnasio">
+        </div>
+    </section>
+
+    <section class="ventajas">
+        <div class="container">
+            <h2 class="section-title">Ventaja Competitiva</h2>
+            <ul>
+                <li>Desarrollo integral del judoka: técnica, físico y mental</li>
+                <li>Entrenamiento tradicional con énfasis en fundamentos sólidos</li>
+                <li>Acceso completo al gimnasio para fuerza funcional aplicada al judo</li>
+                <li>Formación en valores: respeto, disciplina y perseverancia</li>
+                <li>Preparación para competencia local, estatal y nacional</li>
+                <li>Atención personalizada y progreso medible</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="diferentes
